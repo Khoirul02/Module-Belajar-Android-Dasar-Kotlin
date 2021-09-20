@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -25,9 +24,6 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
         holder.judul.text = title[position]
         holder.kategori.text = kategori[position]
         Glide.with(holder.itemView).load(gambar[position]).apply(RequestOptions().override(320,320)).into(holder.image)
-        holder.klik.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "Judul : ${title[position]}", Toast.LENGTH_LONG).show()
-        }
     }
 
     override fun getItemCount(): Int {
