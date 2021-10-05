@@ -15,6 +15,7 @@ import com.huda.myapplication.model.ResultsItem
 
 class MovieApiAdapter (val results : ArrayList<ResultsItem>) : RecyclerView.Adapter<MovieApiAdapter.ViewHolder>() {
 
+
     fun setData(data : List<ResultsItem>){
         results.clear()
         results.addAll(data)
@@ -34,8 +35,9 @@ class MovieApiAdapter (val results : ArrayList<ResultsItem>) : RecyclerView.Adap
         holder.kategori.text = "Vote : ${data.voteAverage.toString()}"
         holder.klik.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailActivity::class.java)
-            intent.putExtra("JUDUL", data.title)
+            intent.putExtra("ID", data.id.toString())
             holder.itemView.context.startActivity(intent)
+//            Toast.makeText(holder.itemView.context, data.id!!.toString(), Toast.LENGTH_LONG).show()
         }
     }
 
